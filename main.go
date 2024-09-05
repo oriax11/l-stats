@@ -42,11 +42,11 @@ func main() {
 
 	// Calculate Linear Regression Line
 	m, b := linearRegression(numbers)
-	fmt.Printf("Linear Regression Line: y = %.2fx + %.2f\n", m, b)
+	fmt.Printf("Linear Regression Line: y = %.6fx + %.6f\n", m, b)
 
 	// Calculate Pearson Correlation Coefficient
 	r := pearsonCorrelation(numbers)
-	fmt.Printf("Pearson Correlation Coefficient: %.2f\n", r)
+	fmt.Printf("Pearson Correlation Coefficient: %.10f\n", r)
 }
 
 func linearRegression(y []int) (float64, float64) {
@@ -54,7 +54,7 @@ func linearRegression(y []int) (float64, float64) {
 	var sumX, sumY, sumXY, sumX2 float64
 
 	for i, yi := range y {
-		x := float64(i + 1)
+		x := float64(i)
 		sumX += x
 		sumY += float64(yi)
 		sumXY += x * float64(yi)
@@ -73,7 +73,7 @@ func pearsonCorrelation(y []int) float64 {
 	var sumX, sumY, sumXY, sumX2, sumY2 float64
 
 	for i, yi := range y {
-		x := float64(i + 1)
+		x := float64(i)
 		sumX += x
 		sumY += float64(yi)
 		sumXY += x * float64(yi)
